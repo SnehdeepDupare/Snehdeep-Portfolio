@@ -1,3 +1,5 @@
+import { SocialIcon } from "react-social-icons";
+
 export const Bars = () => {
   return (
     <svg
@@ -33,5 +35,20 @@ export const Close = () => {
         d="M6 18L18 6M6 6l12 12"
       />
     </svg>
+  );
+};
+
+export const Github = () => {
+  return (
+    <SocialIcon url="https://github.com/SnehdeepDupare" bgColor="transparent" />
+  );
+};
+
+export const Linkedin = () => {
+  return (
+    <SocialIcon
+      url="https://www.linkedin.com/in/snehdeepdupare/"
+      bgColor="transparent"
+    />
   );
 };

@@ -5,6 +5,7 @@ import { navLinks } from "@/constants";
 import { Bars, Close } from "./Icons";
 import { useRouter, usePathname } from "next/navigation";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 function Header() {
   const router = useRouter();
@@ -19,14 +20,37 @@ function Header() {
     <header className="fixed top-0 w-full py-10 z-20">
       <div className="flex flex-row items-center justify-between max-w-6xl mx-auto px-5">
         {/* Left */}
-        <div>
-          <h1 className="font-bold text-3xl">
-            <Link href="/">SNEHDEEP</Link>
+        <motion.div
+          initial={{
+            opacity: 0,
+            x: -100,
+          }}
+          animate={{
+            opacity: 1,
+            x: 0,
+          }}
+          transition={{ duration: 0.7 }}
+        >
+          <h1 className="font-bold font-baskervville text-3xl">
+            <Link href="/">SD.</Link>
           </h1>
-        </div>
+        </motion.div>
 
         {/* Right */}
-        <div className="flex items-center">
+        <motion.div
+          initial={{
+            opacity: 0,
+            x: 100,
+          }}
+          animate={{
+            opacity: 1,
+            x: 0,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+          className="flex items-center"
+        >
           <ul className={`sm:flex hidden justify-end items-center flex-1`}>
             {navLinks.map((link) => {
               const isActive =
@@ -78,7 +102,7 @@ function Header() {
               </ul>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </header>
   );

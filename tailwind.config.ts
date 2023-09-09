@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        baskervville: ["Baskervville", "serif"],
+      },
       colors: {
         deepblue: "var(--color-deep-blue)",
       },
