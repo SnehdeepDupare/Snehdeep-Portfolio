@@ -13,6 +13,7 @@ const config: Config = {
       },
       colors: {
         deepblue: "var(--color-deep-blue)",
+        dimwhite: "var(--color-dim-white)",
       },
       keyframes: {
         appear: {
@@ -25,6 +26,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")({ nocompatible: true })],
 };
 export default config;

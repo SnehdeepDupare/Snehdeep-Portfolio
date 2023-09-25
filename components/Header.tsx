@@ -17,7 +17,7 @@ function Header() {
   };
 
   return (
-    <header className="fixed top-0 w-full py-10 z-20">
+    <header className="py-10 z-20">
       <div className="flex flex-row items-center justify-between max-w-6xl mx-auto px-5">
         {/* Left */}
         <motion.div

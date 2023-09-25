@@ -18,7 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-deepblue text-white`}>
+      <body
+        className={`${inter.className} bg-deepblue text-white scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-transparent hover:scrollbar-thumb-gray-300 scrollbar-thumb-rounded-full`}
+      >
         <Header />
         <Blob />
         {children}
