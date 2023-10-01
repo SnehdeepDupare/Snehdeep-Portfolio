@@ -1,6 +1,8 @@
+import { TopRightArrow } from "@/components/Icons";
 import PageWrapper from "@/components/PageWrapper";
 import urlFor from "@/sanity/lib/urlFor";
 import { getSkills } from "@/sanity/utils/getSkills";
+import Link from "next/link";
 
 export const revalidate = 0;
 
@@ -32,6 +34,15 @@ async function Skills() {
           ))}
         </div>
       </main>
+      <div className="mx-auto max-w-6xl px-10 mt-10">
+        <Link
+          href="/projects"
+          className="text-gray-400 hover:text-white hover:underline tracking-wide flex flex-row gap-x-3 "
+        >
+          Take a look at my Projects
+          <TopRightArrow />
+        </Link>
+      </div>
     </PageWrapper>
   );
 }
