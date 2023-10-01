@@ -1,9 +1,7 @@
-// "use client";
 import { TopRightArrow } from "@/components/Icons";
+import PageWrapper from "@/components/PageWrapper";
 import urlFor from "@/sanity/lib/urlFor";
 import { getProjects } from "@/sanity/utils/getProjects";
-
-// import { motion } from "framer-motion";
 import Link from "next/link";
 
 export const revalidate = 0;
@@ -12,13 +10,8 @@ async function Projects() {
   const projects = await getProjects();
 
   return (
-    <>
-      <main
-        // initial={{ opacity: 0 }}
-        // whileInView={{ opacity: 1 }}
-        // transition={{ duration: 1.2 }}
-        className="max-w-6xl mx-auto flex flex-col items-center px-10"
-      >
+    <PageWrapper>
+      <main className="max-w-6xl mx-auto flex flex-col items-center px-10">
         <h3 className="tracking-[20px] uppercase text-2xl text-dimwhite">
           Projects
         </h3>
@@ -62,7 +55,7 @@ async function Projects() {
           <TopRightArrow />
         </Link>
       </div>
-    </>
+    </PageWrapper>
   );
 }
 
