@@ -10,8 +10,14 @@ export default {
       type: "string",
     },
     {
-      name: "image",
-      title: "Image",
+      name: "slug",
+      title: "Slug",
+      type: "slug",
+      options: { source: "title" },
+    },
+    {
+      name: "poster",
+      title: "Poster",
       type: "image",
       options: {
         hotspot: true,
@@ -29,6 +35,26 @@ export default {
       title: "Technologies",
       type: "array",
       of: [{ type: "reference", to: { type: "skill" } }],
+    },
+
+    {
+      name: "screenshots",
+      title: "Screenshots",
+      description: "Screenshots of the Project",
+      type: "array",
+      of: [{ type: "image" }],
+    },
+
+    {
+      name: "description",
+      title: "Description",
+      description: "Enter a brief description of the Project",
+      type: "array",
+      of: [
+        {
+          type: "block",
+        },
+      ],
     },
 
     {

@@ -54,7 +54,7 @@ function Header() {
           <ul className={`sm:flex hidden justify-end items-center flex-1`}>
             {navLinks.map((link) => {
               const isActive =
-                (pathname.includes(link.route) && link.route.length > 1) ||
+                (pathname?.includes(link.route) && link.route.length > 1) ||
                 pathname === link.route;
 
               return (
@@ -70,7 +70,7 @@ function Header() {
           </ul>
 
           {/* Mobile View */}
-          <div className="sm:hidden flex flex-1 justify-end items-center ">
+          <div className="sm:hidden flex flex-1 justify-end items-center z-20">
             <button className="md:hidden" onClick={toggleNavbar}>
               {mobView ? <Close /> : <Bars />}
             </button>
@@ -85,7 +85,7 @@ function Header() {
               >
                 {navLinks.map((link) => {
                   const isActive =
-                    (pathname.includes(link.route) && link.route.length > 1) ||
+                    (pathname?.includes(link.route) && link.route.length > 1) ||
                     pathname === link.route;
 
                   return (

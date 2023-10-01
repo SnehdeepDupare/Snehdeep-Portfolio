@@ -1,8 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import Link from "next/link";
 
 function Contact() {
+  const redirectUser = () => {
+    window.location.href = "mailto:duparesnehdeep@gmail.com";
+  };
+
   return (
     <motion.main
       initial={{ opacity: 0 }}
@@ -15,7 +18,12 @@ function Contact() {
       </h3>
       <h5 className="absolute top-40 md:top-12 text-dimwhite z-[-10] md:z-auto">
         Get in touch or shoot me an email directly on{" "}
-        <span className="font-bold">duparesnehdeep@gmail.com</span>
+        <span
+          className="font-bold cursor-pointer hover:underline"
+          onClick={redirectUser}
+        >
+          duparesnehdeep@gmail.com
+        </span>
       </h5>
 
       <form className="space-y-3 mx-auto flex flex-col items-start">
@@ -26,7 +34,7 @@ function Contact() {
           placeholder="Message"
           className="contact-field scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-transparent hover:scrollbar-thumb-gray-300 scrollbar-thumb-rounded-full h-28 md:h-36"
         />
-        <button className="bg-white text-black py-3 px-10 rounded-md font-bold">
+        <button className="bg-white hover:bg-dimwhite text-black py-3 px-10 rounded-md font-bold">
           Send Message
         </button>
       </form>

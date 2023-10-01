@@ -1,6 +1,6 @@
-import React from "react";
+type Props = {};
 
-function Skill() {
+function SkillComponent({}: Props) {
   return (
     <div>
       <img
@@ -13,4 +13,4 @@ function Skill() {
   );
 }
 
-export default Skill;
+export default SkillComponent;
