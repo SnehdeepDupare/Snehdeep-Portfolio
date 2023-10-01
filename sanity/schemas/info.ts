@@ -22,5 +22,11 @@ export default {
       description: "Give a brief description of yourself",
       type: "text",
     },
+    {
+      name: "resume",
+      title: "Resume",
+      description: "Upload Resume in PDF Format only!",
+      type: "file",
+    },
   ],
 };

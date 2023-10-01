@@ -20,6 +20,7 @@ export interface Info extends SanityBody {
   aboutText: string;
   title: string;
   profilePic: Image;
+  resume: string;
 }
 
 export interface Technology extends SanityBody {
