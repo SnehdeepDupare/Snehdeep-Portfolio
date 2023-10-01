@@ -1,3 +1,4 @@
+import { TopRightArrow } from "@/components/Icons";
 import PageWrapper from "@/components/PageWrapper";
 import ProfileWrapper from "@/components/ProfileWrapper";
 import urlFor from "@/sanity/lib/urlFor";
@@ -10,8 +11,8 @@ async function About() {
 
   return (
     <PageWrapper>
-      <main className="md:relative flex flex-col md:flex-row text-center mx-auto max-w-6xl px-10 justify-evenly items-center">
-        <h3 className="tracking-[20px] absolute top-24 md:top-0 uppercase text-2xl z-[-10] md:z-auto text-dimwhite">
+      <main className="md:relative flex flex-col md:flex-row text-center mx-auto max-w-6xl px-10 justify-evenly items-center ">
+        <h3 className="tracking-[20px] absolute top-24 md:top-0 uppercase text-2xl text-dimwhite">
           About
         </h3>
 
@@ -25,6 +26,16 @@ async function About() {
 
         <p className="px-0 md:px-10 mt-5 md:mt-0">{info?.aboutText}</p>
       </main>
+      <div className="mx-auto max-w-6xl px-10 mt-10">
+        <a
+          href={info?.resume}
+          target="_blank"
+          className="text-gray-400 hover:text-white hover:underline tracking-wide flex flex-row gap-x-3 "
+        >
+          Check My Resume
+          <TopRightArrow />
+        </a>
+      </div>
     </PageWrapper>
   );
 }
