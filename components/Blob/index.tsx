@@ -24,7 +24,7 @@ function Blob() {
 
   return (
     <div
-      className="h-[500px] w-[500px] rounded-full bg-[#071d37] fixed top-0 left-0 -z-10 blur-3xl"
+      className="hidden md:block h-[500px] w-[500px] rounded-full bg-[#071d37] fixed top-0 left-0 -z-10 blur-3xl"
       style={{
         left: mousePosition.x - 250,
         top: mousePosition.y - 250,
