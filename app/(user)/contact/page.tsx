@@ -2,10 +2,37 @@
 import { TopRightArrow } from "@/components/Icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { FormEvent, useState } from "react";
 
 function Contact() {
   const redirectUser = () => {
     window.location.href = "mailto:duparesnehdeep@gmail.com";
+  };
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleForm = async (e: FormEvent) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("/api/route", {
+        method: "POST",
+        body: JSON.stringify({
+          name,
+          email,
+          subject,
+          message,
+        }),
+        headers: {
+          "content-type": "application/json",
+        },
+      });
+    } catch (error) {
+      console.error("Error", error);
+    }
   };
 
   return (
@@ -29,15 +56,41 @@ function Contact() {
           </span>
         </h5>
 
-        <form className="space-y-3 mx-auto flex flex-col items-start mt-20 md:mt-0">
-          <input type="text" placeholder="Name" className="contact-field" />
-          <input type="email" placeholder="Email" className="contact-field" />
-          <input type="text" placeholder="Subject" className="contact-field" />
+        <form
+          className="space-y-3 mx-auto flex flex-col items-start mt-20 md:mt-0"
+          onSubmit={handleForm}
+        >
+          <input
+            type="text"
+            placeholder="Name"
+            className="contact-field"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            className="contact-field"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Subject"
+            className="contact-field"
+            value={subject}
+            onChange={(e) => setSubject(e.target.value)}
+          />
           <textarea
             placeholder="Message"
             className="contact-field scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-transparent hover:scrollbar-thumb-gray-300 scrollbar-thumb-rounded-full h-28 md:h-36"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
           />
-          <button className="bg-white hover:bg-dimwhite text-black py-3 px-10 rounded-md font-bold transition-all duration-300 ease-in-out">
+          <button
+            className="bg-white hover:bg-dimwhite text-black py-3 px-10 rounded-md font-bold transition-all duration-300 ease-in-out"
+            type="submit"
+          >
             Send Message
           </button>
         </form>
