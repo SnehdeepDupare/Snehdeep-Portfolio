@@ -9,6 +9,12 @@
     --color-deep-blue: #020a13;
     --color-dim-white: #b6b6b6;
   }
+
+  body {
+    background-image: linear-gradient(#b6b6b612 0.1em, transparent 0.1em),
+      linear-gradient(90deg, #b6b6b612 0.1em, transparent 0.1em);
+    background-size: 7rem 7rem;
+  }
 }
 
 @layer components {
