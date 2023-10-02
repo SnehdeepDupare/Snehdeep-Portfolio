@@ -4,9 +4,7 @@ import { Skill } from "@/typings";
 
 export const getSkills: () => Promise<Skill[]> = async () => {
   try {
-    const skills = await client.fetch(groq`*[_type == 'skill']`, {
-      cache: "no-store",
-    });
+    const skills = await client.fetch(groq`*[_type == 'skill']`);
 
     return skills;
   } catch (error) {

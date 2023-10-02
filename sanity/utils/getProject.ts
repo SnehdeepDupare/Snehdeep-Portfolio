@@ -11,9 +11,6 @@ export async function getProject(slug: string): Promise<Project> {
       }`,
     {
       slug,
-    },
-    {
-      cache: "no-store",
     }
   );
 

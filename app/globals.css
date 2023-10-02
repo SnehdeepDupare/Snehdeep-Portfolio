@@ -27,6 +27,6 @@
   }
 
   .contact-field {
-    @apply px-6 py-4 bg-transparent border border-gray-800 w-96 md:w-[500px] outline-none rounded-md focus:bg-black placeholder:text-gray-500 text-gray-500 focus:text-white hover:border-gray-700 transition-all duration-300;
+    @apply px-6 py-4 bg-transparent border border-gray-800 w-72 md:w-[500px] outline-none rounded-md focus:bg-black placeholder:text-gray-500 text-gray-500 focus:text-white hover:border-gray-700 transition-all duration-300;
   }
 }

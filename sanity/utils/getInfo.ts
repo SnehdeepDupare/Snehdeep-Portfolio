@@ -8,10 +8,7 @@ export const getInfo: () => Promise<Info> = async () => {
       groq`*[_type == "info"][0]{
         ...,
       "resume":resume.asset->url
-    }`,
-      {
-        cache: "no-store",
-      }
+    }`
     );
 
     return info;

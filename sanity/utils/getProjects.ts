@@ -9,10 +9,7 @@ export const getProjects: () => Promise<Project[]> = async () => {
         ...,
         "slug": slug.current,
         technologies[]->,       
-      }| order(_createdAt desc)`,
-      {
-        cache: "no-store",
-      }
+      }| order(_createdAt desc)`
     );
 
     return projects;

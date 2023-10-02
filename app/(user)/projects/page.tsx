@@ -19,11 +19,11 @@ async function Projects() {
         <div className="space-y-5 mt-12 grid grid-cols-1 md:grid-cols-2 md:space-y-0 md:gap-5">
           {projects.map((project) => (
             <Link href={`/project/${project.slug}`} key={project._id}>
-              <div className="relative flex flex-col group cursor-pointer rounded-xl overflow-hidden border border-gray-500">
+              <div className="relative flex flex-col group cursor-pointer rounded-xl overflow-hidden ">
                 <img
                   src={urlFor(project.poster).url()}
                   alt="Project Image"
-                  className="h-96 aspect-video object-contain"
+                  className=" aspect-video object-contain"
                 />
 
                 <div className="absolute bottom-0 bg-black w-full p-3 space-y-2 opacity-0  group-hover:opacity-80 transition-all ease-in-out duration-300 translate-y-10 group-hover:translate-y-0">
@@ -47,7 +47,7 @@ async function Projects() {
         </div>
       </main>
 
-      <div className="mt-12 mb-36 group max-w-6xl mx-auto px-10 lg:pl-36">
+      <div className=" text-left mt-12 mb-36 group max-w-6xl mx-auto px-10 ">
         <Link href="/contact" className="flex gap-x-3">
           <p className="text-gray-400 group-hover:text-white group-hover:underline tracking-wide">
             Loved my work? Contact me now

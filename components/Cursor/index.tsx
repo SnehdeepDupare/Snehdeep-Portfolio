@@ -60,14 +60,14 @@ function Cursor() {
 
   return (
     <motion.div
-      className="h-20 w-20 fixed border rounded-full top-0 left-0 pointer-events-none"
+      className="hidden md:block h-20 w-20 fixed border rounded-full top-0 left-0 pointer-events-none z-50"
       style={{
         left: smoothOutline._x,
         top: smoothOutline._y,
       }}
     >
       <motion.div
-        className="h-2 w-2 rounded-full bg-white fixed top-0 left-0 pointer-events-none "
+        className="hidden md:block h-2 w-2 rounded-full bg-white fixed top-0 left-0 pointer-events-none"
         style={{
           left: smoothMouse.x,
           top: smoothMouse.y,

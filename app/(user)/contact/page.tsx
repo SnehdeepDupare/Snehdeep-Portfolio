@@ -29,7 +29,7 @@ function Contact() {
           </span>
         </h5>
 
-        <form className="space-y-3 mx-auto flex flex-col items-start">
+        <form className="space-y-3 mx-auto flex flex-col items-start mt-20 md:mt-0">
           <input type="text" placeholder="Name" className="contact-field" />
           <input type="email" placeholder="Email" className="contact-field" />
           <input type="text" placeholder="Subject" className="contact-field" />

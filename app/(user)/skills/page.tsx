@@ -27,14 +27,15 @@ async function Skills() {
               <img
                 src={urlFor(skill.image).url()}
                 alt="skill-img"
-                className="h-16 w-16 border rounded-full object-contain mb-2"
+                className="h-14 w-14 md:w-16 md:h-16 border rounded-full object-contain mb-2"
               />
               <p className="text-sm">{skill.title}</p>
             </div>
           ))}
         </div>
       </main>
-      <div className="mx-auto max-w-6xl px-10 mt-10">
+
+      <div className="mx-auto max-w-6xl px-10 mt-10 mb-24 md:mb-0 ">
         <Link
           href="/projects"
           className="text-gray-400 hover:text-white hover:underline tracking-wide flex flex-row gap-x-3 "
