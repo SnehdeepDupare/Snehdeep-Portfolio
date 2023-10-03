@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Header from "@/components/Header";
 import Cursor from "@/components/Cursor";
+import { Toaster } from "react-hot-toast";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -23,6 +25,8 @@ export default function RootLayout({
         <Header />
         <Cursor />
         {children}
+
+        <Toaster />
       </body>
     </html>
   );
