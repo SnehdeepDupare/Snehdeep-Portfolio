@@ -1,8 +1,9 @@
 "use client";
-import { TopRightArrow } from "@/components/Icons";
+import { Loader, TopRightArrow } from "@/components/Icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
+import toast from "react-hot-toast";
 
 function Contact() {
   const redirectUser = () => {
@@ -14,10 +15,13 @@ function Contact() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   const handleForm = async (e: FormEvent) => {
     e.preventDefault();
-
     try {
+      setLoading(true);
+
       const res = await fetch("/api/route", {
         method: "POST",
         body: JSON.stringify({
@@ -30,8 +34,30 @@ function Contact() {
           "content-type": "application/json",
         },
       });
-    } catch (error) {
-      console.error("Error", error);
+
+      if (res.status === 200) {
+        toast.success("Message Sent!", {
+          style: {
+            borderRadius: "10px",
+            background: "#333",
+            color: "#fff",
+          },
+        });
+      }
+    } catch (error: any) {
+      toast.error(`Error: ${error}`, {
+        style: {
+          borderRadius: "10px",
+          background: "#333",
+          color: "#fff",
+        },
+      });
+    } finally {
+      setLoading(false);
+      setName("");
+      setEmail("");
+      setSubject("");
+      setMessage("");
     }
   };
 
@@ -66,6 +92,7 @@ function Contact() {
             className="contact-field"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            required
           />
           <input
             type="email"
@@ -73,6 +100,7 @@ function Contact() {
             className="contact-field"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
           <input
             type="text"
@@ -80,18 +108,21 @@ function Contact() {
             className="contact-field"
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
+            required
           />
           <textarea
             placeholder="Message"
             className="contact-field scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-transparent hover:scrollbar-thumb-gray-300 scrollbar-thumb-rounded-full h-28 md:h-36"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            required
           />
           <button
-            className="bg-white hover:bg-dimwhite text-black py-3 px-10 rounded-md font-bold transition-all duration-300 ease-in-out"
+            className="bg-white hover:bg-dimwhite text-black py-3 px-10 rounded-md font-bold transition-all duration-300 ease-in-out disabled:bg-dimwhite w-52 flex justify-center"
+            disabled={loading}
             type="submit"
           >
-            Send Message
+            {loading ? <Loader /> : "Send Message"}
           </button>
         </form>
       </motion.main>
