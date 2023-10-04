@@ -23,7 +23,7 @@ async function Projects() {
                 <img
                   src={urlFor(project.poster).url()}
                   alt="Project Image"
-                  className=" aspect-video object-contain"
+                  className=" aspect-video object-contain group-hover:scale-105 duration-300 ease-in-out"
                 />
 
                 <div className="absolute bottom-0 bg-black w-full p-3 space-y-2 opacity-0  group-hover:opacity-80 transition-all ease-in-out duration-300 translate-y-10 group-hover:translate-y-0">
