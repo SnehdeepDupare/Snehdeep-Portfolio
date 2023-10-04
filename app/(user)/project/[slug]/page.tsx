@@ -1,5 +1,6 @@
 import { GithubIcon, TopRightArrow } from "@/components/Icons";
 import PageWrapper from "@/components/PageWrapper";
+import { RichTextComponents } from "@/components/RichTextComponents";
 import urlFor from "@/sanity/lib/urlFor";
 import { getProject } from "@/sanity/utils/getProject";
 import { PortableText } from "@portabletext/react";
@@ -9,19 +10,21 @@ type Props = {
   params: { slug: string };
 };
 
+export const revalidate = 0;
+
 async function ProjectPage({ params: { slug } }: Props) {
   const project = await getProject(slug);
 
   return (
     <PageWrapper>
       <main className="max-w-6xl mx-auto px-5">
-        <section className="flex flex-col md:flex-row md:space-x-16">
+        <section className="flex flex-col justify-between md:flex-row md:space-x-16">
           <div className="flex flex-col gap-y-5">
-            <h1 className="font-bold text-3xl">{project.title}</h1>
+            <h1 className="font-bold text-5xl">{project.title}</h1>
             <p>{project.summary}</p>
 
             <div className="flex flex-col space-y-3">
-              <h2 className="font-semibold text-2xl">Technlogies:</h2>
+              <h2 className="font-semibold text-3xl">Technlogies:</h2>
               <div className="flex flex-row space-x-5">
                 {project.technologies.map((technology) => (
                   <div
@@ -42,36 +45,44 @@ async function ProjectPage({ params: { slug } }: Props) {
 
           <img
             src={urlFor(project.poster).url()}
-            className="w-full h-80 object-contain rounded-xl"
+            className="h-[350] w-[600px] object-contain rounded-xl mt-4 md:mt-0"
           />
         </section>
 
         <section className="flex flex-col space-y-5 mt-5">
-          <h2 className="font-semibold text-2xl">Project Description:</h2>
+          <h2 className="font-semibold text-3xl">Project Description:</h2>
           <div>
-            <PortableText value={project.description} />
+            <PortableText
+              value={project.description}
+              components={RichTextComponents}
+            />
           </div>
         </section>
 
         <section className="flex flex-row space-x-5 mt-5">
           <div className="flex flex-row">
+            {project.githubLink && (
+              <a
+                href={project.githubLink}
+                target="_blank"
+                className="bg-white text-black font-semibold rounded-lg px-8 py-3 hover:bg-dimwhite transition-all duration-500 ease-in-out flex flex-row gap-x-2"
+              >
+                <GithubIcon />
+                Get Code
+              </a>
+            )}
+          </div>
+
+          {project.linkToBuild && (
             <a
-              href={project.githubLink}
+              href={project.linkToBuild}
               target="_blank"
               className="bg-white text-black font-semibold rounded-lg px-8 py-3 hover:bg-dimwhite transition-all duration-500 ease-in-out flex flex-row gap-x-2"
             >
-              <GithubIcon />
-              Get Code
+              Visit
+              <TopRightArrow />
             </a>
-          </div>
-          <a
-            href={project.linkToBuild}
-            target="_blank"
-            className="bg-white text-black font-semibold rounded-lg px-8 py-3 hover:bg-dimwhite transition-all duration-500 ease-in-out flex flex-row gap-x-2"
-          >
-            Visit
-            <TopRightArrow />
-          </a>
+          )}
         </section>
 
         <section className="flex flex-col space-y-5 mt-5">
