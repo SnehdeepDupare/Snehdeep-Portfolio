@@ -1,5 +1,5 @@
 "use client";
-import { Loader, TopRightArrow } from "@/components/Icons";
+import { Github, Linkedin, Loader, TopRightArrow } from "@/components/Icons";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
@@ -127,7 +127,12 @@ function Contact() {
         </form>
       </motion.main>
 
-      <div className="mx-auto max-w-6xl px-10 mb-24">
+      <motion.div
+        className="mx-auto max-w-6xl px-10 mb-24"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+      >
         <Link
           href="/"
           className="text-gray-400 hover:text-white hover:underline tracking-wide flex flex-row gap-x-3 "
@@ -135,7 +140,12 @@ function Contact() {
           Go Back to Home
           <TopRightArrow />
         </Link>
-      </div>
+
+        <div className="mt-4 mb-24 md:0">
+          <Github />
+          <Linkedin />
+        </div>
+      </motion.div>
     </>
   );
 }
