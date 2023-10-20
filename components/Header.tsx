@@ -5,15 +5,69 @@ import { navLinks } from "@/constants";
 import { Bars, Close } from "./Icons";
 import { useRouter, usePathname } from "next/navigation";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 function Header() {
   const router = useRouter();
   const pathname = usePathname();
-  const [mobView, setMobView] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const toggleNavbar = () => {
-    setMobView(!mobView);
+    setOpen(!open);
+  };
+
+  const menuVariants = {
+    initial: {
+      scaleY: 0,
+    },
+    animate: {
+      scaleY: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.12, 0, 0.39, 0],
+      },
+    },
+    exit: {
+      scaleY: 0,
+      transition: {
+        delay: 0.5,
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  };
+
+  const linkVariants = {
+    initial: {
+      y: "30vh",
+      transition: {
+        duration: 0.5,
+        ease: [0.37, 0, 0.36, 1],
+      },
+    },
+    open: {
+      y: 0,
+      transition: {
+        duration: 0.7,
+        ease: [0, 0.55, 0.45, 1],
+      },
+    },
+  };
+
+  const containerVariants = {
+    initial: {
+      transition: {
+        staggerChildren: 0.09,
+        staggerDirection: -1,
+      },
+    },
+    open: {
+      transition: {
+        delay: 0.3,
+        staggerChildren: 0.09,
+        staggerDirection: 1,
+      },
+    },
   };
 
   return (
@@ -51,7 +105,7 @@ function Header() {
           }}
           className="flex items-center"
         >
-          <ul className={`sm:flex hidden justify-end items-center flex-1`}>
+          <ul className={`md:flex hidden justify-end items-center flex-1`}>
             {navLinks.map((link) => {
               const isActive =
                 (pathname?.includes(link.route) && link.route.length > 1) ||
@@ -70,38 +124,65 @@ function Header() {
           </ul>
 
           {/* Mobile View */}
-          <div className="sm:hidden flex flex-1 justify-end items-center z-20">
-            <button className="md:hidden" onClick={toggleNavbar}>
-              {mobView ? <Close /> : <Bars />}
-            </button>
+          <button className="md:hidden" onClick={toggleNavbar}>
+            <Bars />
+          </button>
 
-            <div
-              className={`${
-                !mobView ? "hidden" : "flex"
-              } p-6 absolute top-20 right-0 my-2 w-full bg-transparent animate-appear backdrop-blur-sm`}
-            >
-              <ul
-                className={`flex justify-end items-center flex-col flex-1 space-y-5`}
+          <AnimatePresence>
+            {open && (
+              <motion.div
+                className="fixed h-screen bg-black w-full left-0 top-0 z-20 py-10 px-5 origin-top"
+                variants={menuVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
               >
-                {navLinks.map((link) => {
-                  const isActive =
-                    (pathname?.includes(link.route) && link.route.length > 1) ||
-                    pathname === link.route;
-
-                  return (
-                    <Link
-                      href={link.route}
-                      key={link.label}
-                      className={`navlink ${isActive && "text-white"}`}
-                      onClick={() => setMobView(!mobView)}
-                    >
-                      {link.label}
+                <div className="flex items-center justify-between">
+                  <h1 className="font-bold font-baskervville text-3xl">
+                    <Link href="/" onClick={toggleNavbar}>
+                      SD.
                     </Link>
-                  );
-                })}
-              </ul>
-            </div>
-          </div>
+                  </h1>
+
+                  <button onClick={toggleNavbar}>
+                    <Close />
+                  </button>
+                </div>
+
+                <motion.div
+                  className="flex flex-col items-center justify-center space-y-8 mt-16"
+                  variants={containerVariants}
+                  initial="initial"
+                  animate="open"
+                  exit="initial"
+                >
+                  {navLinks.map((link) => {
+                    const isActive =
+                      (pathname?.includes(link.route) &&
+                        link.route.length > 1) ||
+                      pathname === link.route;
+
+                    return (
+                      <div className="overflow-hidden">
+                        <motion.div variants={linkVariants}>
+                          <Link
+                            href={link.route}
+                            key={link.label}
+                            className={`navlink ${
+                              isActive && "text-white"
+                            } text-lg uppercase font-bold`}
+                            onClick={toggleNavbar}
+                          >
+                            {link.label}
+                          </Link>
+                        </motion.div>
+                      </div>
+                    );
+                  })}
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
     </header>
