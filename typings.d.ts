@@ -37,6 +37,7 @@ export interface Skill extends SanityBody {
 
 export interface Screenshot extends SanityBody {
   _type: "image";
+  _key: string;
   asset: {
     _ref: string;
     _type: "reference";
