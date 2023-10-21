@@ -17,6 +17,7 @@
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
     "framer-motion": "^10.16.4",
+    "lightgallery": "^2.7.2",
     "mailgun.js": "^9.3.0",
     "next": "13.4.19",
     "next-sanity": "^5.5.4",
