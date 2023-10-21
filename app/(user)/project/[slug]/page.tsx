@@ -1,3 +1,4 @@
+import Gallery from "@/components/Gallery";
 import { GithubIcon, TopRightArrow } from "@/components/Icons";
 import PageWrapper from "@/components/PageWrapper";
 import { RichTextComponents } from "@/components/RichTextComponents";
@@ -45,7 +46,7 @@ async function ProjectPage({ params: { slug } }: Props) {
 
           <img
             src={urlFor(project.poster).url()}
-            className="h-[350] w-[600px] object-contain rounded-xl mt-4 md:mt-0"
+            className="h-[350px] w-[600px] object-contain rounded-xl mt-4 md:mt-0"
           />
         </section>
 
@@ -87,15 +88,7 @@ async function ProjectPage({ params: { slug } }: Props) {
 
         <section className="flex flex-col space-y-5 mt-5">
           <h2 className="font-semibold text-2xl">Screenshots:</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {project.screenshots.map((screenshot) => (
-              <img
-                key={screenshot._id}
-                src={urlFor(screenshot.asset).url()}
-                className=" object-contain rounded-xl"
-              />
-            ))}
-          </div>
+          <Gallery title={project?.title} images={project?.screenshots} />
         </section>
 
         <section className="mt-24 mb-36 group">
