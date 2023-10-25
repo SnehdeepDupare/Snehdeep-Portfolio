@@ -22,7 +22,7 @@ async function Projects() {
               <div className="relative flex flex-col group cursor-pointer rounded-xl overflow-hidden ">
                 <img
                   src={urlFor(project.poster).url()}
-                  alt="Project Image"
+                  alt={project.title}
                   className=" aspect-video object-contain group-hover:scale-105 duration-300 ease-in-out"
                 />
 
@@ -35,7 +35,7 @@ async function Projects() {
                       <img
                         key={technology._id}
                         src={urlFor(technology.image).url()}
-                        alt="technology-img"
+                        alt={technology.title}
                         className="h-6 w-6 object-contain"
                       />
                     ))}

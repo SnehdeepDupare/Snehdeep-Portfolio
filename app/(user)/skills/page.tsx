@@ -26,7 +26,7 @@ async function Skills() {
             <div key={skill._id} className="flex flex-col items-center">
               <img
                 src={urlFor(skill.image).url()}
-                alt="skill-img"
+                alt={skill.title}
                 className="h-14 w-14 md:w-16 md:h-16 border rounded-full object-contain mb-2"
               />
               <p className="text-sm">{skill.title}</p>

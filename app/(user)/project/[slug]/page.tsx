@@ -35,7 +35,7 @@ async function ProjectPage({ params: { slug } }: Props) {
                   >
                     <img
                       src={urlFor(technology.image).url()}
-                      alt=""
+                      alt={technology.title}
                       className="h-10 w-10 object-contain"
                     />
                   </div>
@@ -46,6 +46,7 @@ async function ProjectPage({ params: { slug } }: Props) {
 
           <img
             src={urlFor(project.poster).url()}
+            alt={project.title}
             className="h-[350px] w-[600px] object-contain rounded-xl mt-4 md:mt-0"
           />
         </section>
