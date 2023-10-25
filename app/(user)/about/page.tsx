@@ -1,8 +1,10 @@
 import { TopRightArrow } from "@/components/Icons";
 import PageWrapper from "@/components/PageWrapper";
 import ProfileWrapper from "@/components/ProfileWrapper";
+import { RichTextComponents } from "@/components/RichTextComponents";
 import urlFor from "@/sanity/lib/urlFor";
 import { getInfo } from "@/sanity/utils/getInfo";
+import { PortableText } from "@portabletext/react";
 
 export const revalidate = 0;
 
@@ -19,14 +21,20 @@ async function About() {
         <ProfileWrapper>
           <img
             src={urlFor(info?.profilePic).url()}
-            alt="profile"
+            alt="Profile Image"
             className="rounded-full h-48 w-48 md:rounded-lg md:h-96 md:w-64 xl:h-[450px] xl:w-[350px] flex-shrink-0 object-cover mt-10"
           />
         </ProfileWrapper>
 
-        <p className="px-0 md:px-10 mt-5 md:mt-0">{info?.aboutText}</p>
+        <div className="px-0 md:px-10 mt-5 text-justify">
+          <PortableText
+            value={info?.aboutText}
+            components={RichTextComponents}
+          />
+        </div>
       </main>
-      <div className="mx-auto max-w-6xl px-10 mt-10">
+
+      <div className="mx-auto max-w-6xl px-10 mt-10 mb-24 md:mb-0">
         <a
           href={info?.resume}
           target="_blank"

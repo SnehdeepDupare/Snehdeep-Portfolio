@@ -20,7 +20,12 @@ export default {
       name: "aboutText",
       title: "About",
       description: "Give a brief description of yourself",
-      type: "text",
+      type: "array",
+      of: [
+        {
+          type: "block",
+        },
+      ],
     },
     {
       name: "resume",

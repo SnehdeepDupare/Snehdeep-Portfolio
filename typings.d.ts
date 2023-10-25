@@ -17,7 +17,7 @@ interface Image {
 
 export interface Info extends SanityBody {
   _type: "info";
-  aboutText: string;
+  aboutText: PortableTextBlock[];
   title: string;
   profilePic: Image;
   resume: string;
