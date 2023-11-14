@@ -5,6 +5,7 @@ import { RichTextComponents } from "@/components/RichTextComponents";
 import urlFor from "@/sanity/lib/urlFor";
 import { getInfo } from "@/sanity/utils/getInfo";
 import { PortableText } from "@portabletext/react";
+import Image from "next/image";
 
 export const revalidate = 0;
 
@@ -19,10 +20,13 @@ async function About() {
         </h3>
 
         <ProfileWrapper>
-          <img
+          <Image
             src={urlFor(info?.profilePic).url()}
-            alt="Profile Image"
-            className="rounded-full h-48 w-48 md:rounded-lg md:h-96 md:w-64 xl:h-[450px] xl:w-[350px] flex-shrink-0 object-cover mt-10"
+            alt="Snehdeep Dupare"
+            className="object-cover"
+            fill={true}
+            priority={true}
+            sizes="100%"
           />
         </ProfileWrapper>
 

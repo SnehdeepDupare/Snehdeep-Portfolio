@@ -13,6 +13,7 @@ import lgZoom from "lightgallery/plugins/zoom";
 
 import { Screenshot } from "@/typings";
 import urlFor from "@/sanity/lib/urlFor";
+import Image from "next/image";
 
 type Props = {
   title: string;
@@ -35,9 +36,11 @@ function Gallery({ title, images }: Props) {
           <div className="absolute top-0 left-0 h-full w-full flex items-center justify-center font-bold text-xl group-hover:bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out ">
             {title}
           </div>
-          <img
+          <Image
             src={urlFor(image?.asset).url()}
             alt={title}
+            height={300}
+            width={500}
             className="h-full w-full rounded-lg"
           />
         </a>

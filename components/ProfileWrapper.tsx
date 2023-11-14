@@ -19,7 +19,8 @@ const ProfileWrapper: React.FC<Props> = ({ children }) => {
       transition={{
         duration: 1.2,
       }}
-      className="flex-shrink-0"
+      viewport={{ once: true }}
+      className="flex-shrink-0 h-48 w-48 md:rounded-lg md:h-96 md:w-64 xl:h-[450px] xl:w-[350px] relative mt-10 rounded-full overflow-hidden"
     >
       {children}
     </motion.div>

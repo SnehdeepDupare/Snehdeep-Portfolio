@@ -3,6 +3,7 @@ import PageWrapper from "@/components/PageWrapper";
 import urlFor from "@/sanity/lib/urlFor";
 import { getSkills } from "@/sanity/utils/getSkills";
 import Link from "next/link";
+import Image from "next/image";
 
 export const revalidate = 0;
 
@@ -24,11 +25,15 @@ async function Skills() {
         <div className="grid grid-cols-4 gap-4 mt-14 md:mt-20">
           {skills.map((skill) => (
             <div key={skill._id} className="flex flex-col items-center">
-              <img
-                src={urlFor(skill.image).url()}
-                alt={skill.title}
-                className="h-14 w-14 md:w-16 md:h-16 border rounded-full object-contain mb-2"
-              />
+              <div className="relative h-14 w-14 md:w-16 md:h-16 mb-2 ">
+                <Image
+                  src={urlFor(skill.image).url()}
+                  alt={skill.title}
+                  fill={true}
+                  sizes="100%"
+                  className="border rounded-full object-contain"
+                />
+              </div>
               <p className="text-sm">{skill.title}</p>
             </div>
           ))}

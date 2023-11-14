@@ -6,6 +6,7 @@ import urlFor from "@/sanity/lib/urlFor";
 import { getProject } from "@/sanity/utils/getProject";
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
+import Image from "next/image";
 
 type Props = {
   params: { slug: string };
@@ -44,10 +45,12 @@ async function ProjectPage({ params: { slug } }: Props) {
             </div>
           </div>
 
-          <img
+          <Image
             src={urlFor(project.poster).url()}
             alt={project.title}
-            className="h-[350px] w-[600px] object-contain rounded-xl mt-4 md:mt-0"
+            height={400}
+            width={700}
+            className="h-full w-full md:max-w-[500px] aspect-video rounded-xl mt-4 md:mt-0"
           />
         </section>
 
@@ -61,13 +64,13 @@ async function ProjectPage({ params: { slug } }: Props) {
           </div>
         </section>
 
-        <section className="flex flex-row space-x-5 mt-5">
+        <section className="flex flex-row items-center space-x-5 mt-5">
           <div className="flex flex-row">
             {project.githubLink && (
               <a
                 href={project.githubLink}
                 target="_blank"
-                className="bg-white text-black font-semibold rounded-lg px-8 py-3 hover:bg-dimwhite transition-all duration-500 ease-in-out flex flex-row gap-x-2"
+                className="bg-white text-black font-semibold rounded-lg px-4 sm:px-8 py-3 hover:bg-dimwhite transition-all duration-500 ease-in-out flex flex-row gap-x-2"
               >
                 <GithubIcon />
                 Get Code
@@ -79,7 +82,7 @@ async function ProjectPage({ params: { slug } }: Props) {
             <a
               href={project.linkToBuild}
               target="_blank"
-              className="bg-white text-black font-semibold rounded-lg px-8 py-3 hover:bg-dimwhite transition-all duration-500 ease-in-out flex flex-row gap-x-2"
+              className="bg-white text-black font-semibold rounded-lg px-4 sm:px-8 py-3 hover:bg-dimwhite transition-all duration-500 ease-in-out flex flex-row gap-x-2"
             >
               Visit
               <TopRightArrow />

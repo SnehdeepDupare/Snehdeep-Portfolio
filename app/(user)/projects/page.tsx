@@ -3,6 +3,7 @@ import PageWrapper from "@/components/PageWrapper";
 import urlFor from "@/sanity/lib/urlFor";
 import { getProjects } from "@/sanity/utils/getProjects";
 import Link from "next/link";
+import Image from "next/image";
 
 export const revalidate = 0;
 
@@ -20,10 +21,12 @@ async function Projects() {
           {projects.map((project) => (
             <Link href={`/project/${project.slug}`} key={project._id}>
               <div className="relative flex flex-col group cursor-pointer rounded-xl overflow-hidden ">
-                <img
+                <Image
                   src={urlFor(project.poster).url()}
                   alt={project.title}
-                  className=" aspect-video object-contain group-hover:scale-105 duration-300 ease-in-out"
+                  width={500}
+                  height={100}
+                  className="object-contain aspect-video group-hover:scale-105 duration-300 ease-in-out"
                 />
 
                 <div className="absolute bottom-0 bg-black w-full p-3 space-y-2 opacity-0  group-hover:opacity-80 transition-all ease-in-out duration-300 translate-y-10 group-hover:translate-y-0">
