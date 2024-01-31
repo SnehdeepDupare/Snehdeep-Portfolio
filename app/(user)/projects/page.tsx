@@ -4,6 +4,11 @@ import urlFor from "@/sanity/lib/urlFor";
 import { getProjects } from "@/sanity/utils/getProjects";
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects | Snehdeep Dupare",
+};
 
 export const revalidate = 0;
 

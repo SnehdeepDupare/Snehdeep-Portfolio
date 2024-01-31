@@ -6,6 +6,11 @@ import urlFor from "@/sanity/lib/urlFor";
 import { getInfo } from "@/sanity/utils/getInfo";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About | Snehdeep Dupare",
+};
 
 export const revalidate = 0;
 

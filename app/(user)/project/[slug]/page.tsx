@@ -12,6 +12,14 @@ type Props = {
   params: { slug: string };
 };
 
+export async function generateMetadata({ params: { slug } }: Props) {
+  const project = await getProject(slug);
+
+  return {
+    title: `${project.title} | Snehdeep Dupare`,
+  };
+}
+
 export const revalidate = 0;
 
 async function ProjectPage({ params: { slug } }: Props) {

@@ -8,7 +8,7 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Snehdeep Dupare Portfolio",
+  title: "Home | Snehdeep Dupare",
   description:
     "Hi, I'm Snehdeep Dupare. Welcome to my digital space! I'm a Full Stack Developer that enjoys to paint the internet canvas with my Projects. I'm a curious individual with strong foundation in languages like React, Next JS. I enjoy to explore and learn new technologies and challenge myself to improve my coding skills.",
   keywords: [

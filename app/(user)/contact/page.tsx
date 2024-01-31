@@ -3,6 +3,11 @@ import PageWrapper from "@/components/PageWrapper";
 import ContactForm from "@/components/ContactForm";
 
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact | Snehdeep Dupare",
+};
 
 async function Contact() {
   const redirectUser = () => {
