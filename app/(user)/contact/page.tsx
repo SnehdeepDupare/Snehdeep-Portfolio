@@ -1,6 +1,7 @@
 import { Github, Linkedin, TopRightArrow } from "@/components/Icons";
 import PageWrapper from "@/components/PageWrapper";
 import ContactForm from "@/components/ContactForm";
+import ContactHeading from "@/components/ContactHeading";
 
 import Link from "next/link";
 import { Metadata } from "next";
@@ -10,27 +11,10 @@ export const metadata: Metadata = {
 };
 
 async function Contact() {
-  const redirectUser = () => {
-    window.location.href = "mailto:duparesnehdeep@gmail.com";
-  };
-
   return (
     <PageWrapper>
       <main className="flex flex-col text-center mx-auto max-w-6xl px-10">
-        <div>
-          <h3 className="tracking-[20px] uppercase text-2xl text-dimwhite">
-            Contact
-          </h3>
-          <h5 className="text-dimwhite mt-2">
-            Get in touch or shoot me an email directly on{" "}
-            <span
-              className="font-bold cursor-pointer hover:underline"
-              // onClick={redirectUser}
-            >
-              duparesnehdeep@gmail.com
-            </span>
-          </h5>
-        </div>
+        <ContactHeading />
 
         <ContactForm />
       </main>
