@@ -22,7 +22,7 @@
     "lightgallery": "^2.7.2",
     "mailgun.js": "^9.3.0",
     "next": "^14.1.0",
-    "next-sanity": "^5.5.4",
+    "next-sanity": "^7.0.17",
     "postcss": "8.4.29",
     "react": "18.2.0",
     "react-dom": "18.2.0",
