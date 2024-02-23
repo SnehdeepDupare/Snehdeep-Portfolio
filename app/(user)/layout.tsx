@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import Cursor from "@/components/Cursor";
 import { Toaster } from "react-hot-toast";
 
+import { GoogleTagManager } from "@next/third-parties/google";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -34,7 +36,7 @@ export default function RootLayout({
         <Header />
         <Cursor />
         {children}
-
+        <GoogleTagManager gtmId={`${process.env.GOOGLE_TAG_MANAGER_ID}`} />
         <Toaster />
       </body>
     </html>

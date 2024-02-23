@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
+    "@next/third-parties": "^14.1.0",
     "@portabletext/react": "^3.0.9",
     "@react-email/components": "0.0.14",
     "@sanity/image-url": "^1.0.2",
