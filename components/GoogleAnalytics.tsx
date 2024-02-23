@@ -9,9 +9,11 @@ export default function GoogleAnalytics() {
       />
       <Script id="google-analytics">
         {`
-            window.dataLayer = window.dataLayer || [] function gtag()
-            {window.dataLayer.push(arguments)}
-            gtag('js', new Date()); gtag('config', ${process.env.GOOGLE_TAG_MANAGER_ID});
+            window.dataLayer = window.dataLayer || []; 
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date()); 
+            
+            gtag('config', '${process.env.GOOGLE_TAG_MANAGER_ID}');
         `}
       </Script>
     </>
