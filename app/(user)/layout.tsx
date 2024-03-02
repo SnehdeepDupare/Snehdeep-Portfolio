@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Cursor from "@/components/Cursor";
 import { Toaster } from "react-hot-toast";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,7 +38,7 @@ export default function RootLayout({
         <Header />
         <Cursor />
         {children}
-
+        <Analytics />
         <Toaster />
       </body>
     </html>
