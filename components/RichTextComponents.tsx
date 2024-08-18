@@ -23,6 +23,13 @@ export const RichTextComponents = {
     h4: ({ children }: any) => (
       <h4 className="text-2xl py-10 font-bold">{children}</h4>
     ),
+    h5: ({ children }: any) => (
+      <h5 className="text-xl py-10 font-bold">{children}</h5>
+    ),
+    h6: ({ children }: any) => (
+      <h6 className="text-lg py-10 font-bold">{children}</h6>
+    ),
+    normal: ({ children }: any) => <p className="py-1">{children}</p>,
   },
 
   marks: {
