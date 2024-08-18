@@ -1,8 +1,10 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 
 function Cursor() {
+  const [isVisible, setIsVisible] = useState(false);
+
   // Cursor Dot
   const mouse = {
     x: useMotionValue(0),
@@ -13,6 +15,7 @@ function Cursor() {
     const { clientX, clientY } = e;
     mouse.x.set(clientX - 4);
     mouse.y.set(clientY - 4);
+    setIsVisible(true);
   };
 
   const smoothOptions = {
@@ -60,7 +63,9 @@ function Cursor() {
 
   return (
     <motion.div
-      className="hidden md:block h-20 w-20 fixed border rounded-full top-0 left-0 pointer-events-none z-50"
+      className={`${
+        isVisible ? "hidden md:block" : "hidden"
+      } h-20 w-20 fixed border rounded-full top-0 left-0 pointer-events-none z-50`}
       style={{
         left: smoothOutline._x,
         top: smoothOutline._y,
