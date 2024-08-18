@@ -1,10 +1,9 @@
 import { TopRightArrow } from "@/components/Icons";
 import PageWrapper from "@/components/PageWrapper";
-import urlFor from "@/sanity/lib/urlFor";
 import { getSkills } from "@/sanity/utils/getSkills";
 import Link from "next/link";
-import Image from "next/image";
 import { Metadata } from "next";
+import DraggableSkillGrid from "@/components/DraggableSkill";
 
 export const metadata: Metadata = {
   title: "Skills | Snehdeep Dupare",
@@ -27,25 +26,10 @@ async function Skills() {
           </p>
         </div>
 
-        <div className="grid grid-cols-4 gap-4 mt-14 md:mt-20">
-          {skills.map((skill) => (
-            <div key={skill._id} className="flex flex-col items-center">
-              <div className="relative h-14 w-14 md:w-16 md:h-16 mb-2 ">
-                <Image
-                  src={urlFor(skill.image).url()}
-                  alt={skill.title}
-                  fill={true}
-                  sizes="100%"
-                  className="border rounded-full object-contain"
-                />
-              </div>
-              <p className="text-sm">{skill.title}</p>
-            </div>
-          ))}
-        </div>
+        <DraggableSkillGrid initialSkills={skills} />
       </main>
 
-      <div className="mx-auto max-w-6xl px-10 mt-10 mb-24 md:mb-0 ">
+      <div className="mx-auto max-w-6xl px-10 mt-10 mb-24">
         <Link
           href="/projects"
           className="text-gray-400 hover:text-white hover:underline tracking-wide flex flex-row gap-x-3 "
