@@ -19,8 +19,8 @@ async function About() {
 
   return (
     <PageWrapper>
-      <main className="md:relative flex flex-col md:flex-row text-center mx-auto max-w-6xl px-10 justify-evenly items-center ">
-        <h3 className="tracking-[20px] absolute top-24 md:top-0 uppercase text-2xl text-dimwhite">
+      <div className="md:relative flex flex-col md:flex-row text-center justify-evenly items-center">
+        <h3 className="tracking-[20px] absolute top-24 md:-top-12 uppercase text-2xl text-dimwhite">
           About
         </h3>
 
@@ -41,9 +41,9 @@ async function About() {
             components={RichTextComponents}
           />
         </div>
-      </main>
+      </div>
 
-      <div className="mx-auto max-w-6xl px-10 mt-10 mb-24 md:mb-0">
+      <div className="mt-10 mb-24 md:mb-0">
         <a
           href={info?.resume}
           target="_blank"

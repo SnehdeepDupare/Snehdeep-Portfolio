@@ -72,7 +72,7 @@ function Header() {
 
   return (
     <header className="py-10 z-20">
-      <div className="flex flex-row items-center justify-between max-w-6xl mx-auto px-5">
+      <div className="flex flex-row items-center justify-between max-w-6xl mx-auto px-5 md:px-10">
         {/* Left */}
         <motion.div
           initial={{

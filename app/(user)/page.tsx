@@ -75,7 +75,7 @@ export default function Home() {
   }, [letters]);
 
   return (
-    <main className="flex flex-col mt-14 md:mt-24 max-w-6xl mx-auto px-10 md:px-24">
+    <div className="flex flex-col md:px-14">
       <motion.h3
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -148,6 +148,6 @@ export default function Home() {
         <Github />
         <Linkedin />
       </motion.div>
-    </main>
+    </div>
   );
 }
