@@ -33,11 +33,15 @@ export default function RootLayout({
       <GoogleAnalytics />
 
       <body
-        className={`${inter.className} bg-deepblue text-white scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-transparent hover:scrollbar-thumb-gray-300 scrollbar-thumb-rounded-full`}
+        className={`${inter.className} bg-deepblue text-white scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-transparent hover:scrollbar-thumb-gray-300 scrollbar-thumb-rounded-full `}
       >
-        <Header />
-        <Cursor />
-        {children}
+        <main className="min-h-svh flex flex-col">
+          <Header />
+          <Cursor />
+          <div className="flex-1 flex flex-col justify-center max-w-6xl mx-auto px-5 md:px-10">
+            {children}
+          </div>
+        </main>
         <Analytics />
         <Toaster />
       </body>

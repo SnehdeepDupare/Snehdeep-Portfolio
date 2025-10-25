@@ -13,13 +13,13 @@ export const metadata: Metadata = {
 async function Contact() {
   return (
     <PageWrapper>
-      <main className="flex flex-col text-center mx-auto max-w-6xl px-10">
+      <div className="flex flex-col text-center">
         <ContactHeading />
 
         <ContactForm />
-      </main>
+      </div>
 
-      <div className="mx-auto max-w-6xl px-10 mt-5 mb-24">
+      <div className="mt-10 mb-24">
         <Link
           href="/"
           className="text-gray-400 hover:text-white hover:underline tracking-wide flex flex-row gap-x-3 "
@@ -28,7 +28,7 @@ async function Contact() {
           <TopRightArrow />
         </Link>
 
-        <div className="mt-2 mb-24 ">
+        <div className="mt-2">
           <Github />
           <Linkedin />
         </div>

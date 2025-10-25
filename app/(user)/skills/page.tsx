@@ -16,7 +16,7 @@ async function Skills() {
 
   return (
     <PageWrapper>
-      <main className="md:relative flex flex-col md:flex-row text-center mx-auto max-w-6xl px-10 justify-evenly items-center">
+      <div className="md:relative flex flex-col md:flex-row text-center justify-evenly items-center">
         <div className="absolute top-24 md:top-0">
           <h3 className="tracking-[20px] uppercase text-2xl text-dimwhite">
             Skills
@@ -27,12 +27,12 @@ async function Skills() {
         </div>
 
         <DraggableSkillGrid initialSkills={skills} />
-      </main>
+      </div>
 
-      <div className="mx-auto max-w-6xl px-10 mt-10 mb-24">
+      <div className="mt-10 mb-24">
         <Link
           href="/projects"
-          className="text-gray-400 hover:text-white hover:underline tracking-wide flex flex-row gap-x-3 "
+          className="text-gray-400 hover:text-white hover:underline tracking-wide flex flex-row gap-x-3"
         >
           Take a look at my Projects
           <TopRightArrow />

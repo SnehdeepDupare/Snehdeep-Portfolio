@@ -17,12 +17,12 @@ async function Projects() {
 
   return (
     <PageWrapper>
-      <main className="max-w-6xl mx-auto flex flex-col items-center px-10">
+      <div className="flex flex-col items-center">
         <h3 className="tracking-[20px] uppercase text-2xl text-dimwhite">
           Projects
         </h3>
 
-        <div className="space-y-5 mt-12 grid grid-cols-1 md:grid-cols-2 md:space-y-0 md:gap-5">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-5">
           {projects.map((project) => (
             <Link href={`/project/${project.slug}`} key={project._id}>
               <div className="relative flex flex-col group cursor-pointer rounded-xl overflow-hidden ">
@@ -53,13 +53,14 @@ async function Projects() {
             </Link>
           ))}
         </div>
-      </main>
+      </div>
 
-      <div className=" text-left mt-12 mb-36 group max-w-6xl mx-auto px-10 ">
-        <Link href="/contact" className="flex gap-x-3">
-          <p className="text-gray-400 group-hover:text-white group-hover:underline tracking-wide">
-            Loved my work? Contact me now
-          </p>
+      <div className="mt-10 mb-24">
+        <Link
+          href="/contact"
+          className="flex gap-x-3 text-gray-400 hover:text-white hover:underline "
+        >
+          <p className="tracking-wide">Loved my work? Contact me now</p>
           <TopRightArrow />
         </Link>
       </div>
